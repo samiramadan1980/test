@@ -1,25 +1,28 @@
 {
- "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vmName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-       "name": "MyCustomScriptExtension",
-        "location": "[resourceGroup().location]",
-      "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.4",
-        "settings": {
-          "fileUris": ["https://raw.githubusercontent.com/samiramadan1980/test/main/Untitled4.ps1"],
-	  "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File Untitled4.ps1"
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
         }
-      }
-    }
-  ]
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[Concat(parameters('vmName'),'/config-app')]",
+            "apiVersion": "2015-06-15",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "publisher": "Microsoft.Compute",
+                "type": "CustomScriptExtension",
+                "typeHandlerVersion": "1.10",
+                "settings": {
+                    "fileUris": [
+                        "https://raw.githubusercontent.com/samiramadan1980/test/main/Untitled4.ps1"
+                    ],
+                    "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File Untitled4.ps1"
+                }
+            }
+        }
+    ]
 }

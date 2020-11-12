@@ -16,7 +16,7 @@
         "type": "CustomScriptExtension",
         "typeHandlerVersion": "1.4",
         "settings": {
-          "fileUris": ["https://github.com/samiramadan1980/test/blob/main/Untitled4.ps1"],
+          "fileUris": ["https://raw.githubusercontent.com/samiramadan1980/test/master/Untitled4.ps1"],
 	  "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File Untitled4.ps1"
         }
       }

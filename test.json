@@ -9,9 +9,8 @@
   "resources": [
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-       "name": "[concat(parameters('vmName'),)]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
+       "name": "MyCustomScriptExtension",
+        "location": "[resourceGroup().location]",
       "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
